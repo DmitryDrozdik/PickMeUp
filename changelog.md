@@ -1,5 +1,58 @@
-2.x.x (Unreleased yet)
+3.0.5 (09 September, 2016)
+* Remove `.idea` from npm package
+* Small fix for getting locales when parsing date
+* Remove mentioning support for Opera 12.1 (didn't check it for a long time and never will)
+* Fix for error when no options specified during initialization
+* Fix for events being dispatched on instance element, rather than on target element, where PickMeUp was initialized, fixes [#134](https://github.com/nazar-pc/PickMeUp/issues/134)
+* Fix for strange issue when showing datepicker in `click` event handler of another element didn't work, fixes [#135](https://github.com/nazar-pc/PickMeUp/issues/135)
+* Fix for non-flat datepicker was closed immediately in `range` mode, fixes [#136](https://github.com/nazar-pc/PickMeUp/issues/136)
+
+3.0.0 (02 September, 2016)
+* PickMeUp is now standalone, no jQuery needed
+* `.pmu-flat` and `.pmu-hidden` classes added
+* Events are now native DOM events instead of callbacks in options
+* Changing date in input field will immediately affect datepicker
+* Defaults moved from `$.pickmeup` to `pickmeup.defaults`
+* Internals (runtime options, events, etc.) are stored in `element.__pickmeup`
+* `before_show` event removed as redundant
+* Days/months/years rendering is now done in form of elements, which allows to customize contents in any possible way, while necessary data are stored in private properties of those elements
+* New options `instance_template` and `instance_content_template` added
+* Stop patching `Date.prototype`, use local wrappers instead
+* `trigger_event` option was removed and styles adjusted to remove 300ms delay when clicking on touch devices
+* Added support for multiple languages with ability to choose during initialization (using newly added option `locales` and changed option `locale`)
+* Added gulp task for building minified file
+* Files re-structuring
+* Refactoring and smaller bug fixes
+* Minified source become even smaller!
+
+2.10.0 (31 August, 2016)
+* Refactoring to `set_date` during initialization instead of duplicating code
+* Added new option `current`, represents date that will be in the center of rendered calendar
+* Fix for [#41](https://github.com/nazar-pc/PickMeUp/issues/41) (do not move months back and forth when selecting days)
+* Refactoring towards unification and normalization (dates as `Date` objects)
+* Fix for [#97](https://github.com/nazar-pc/PickMeUp/issues/97) and generally for setting date outside of limits
+* Fix for setting date to empty array, to address underlying problem in [#121](https://github.com/nazar-pc/PickMeUp/issues/121)
+* Make sass variables 'default' ([PR #313](https://github.com/nazar-pc/PickMeUp/pull/131))
+* Tiny fix for `show` method being forced even when it shouldn't
+* Do not update `<input>` value unless value really changed to avoid cursor jumping
+* Small fixes
+
+2.9.2 (05 August, 2016)
+* Fix for [#120](https://github.com/nazar-pc/PickMeUp/issues/120) (when applied to multiple elements options might be changed during initialization of one element and then used in another, fixed by deep copy of options)
+* Added support for numeric (Unix timestamp in milliseconds) dates
+
+2.9.1 (24 June, 2016)
+* Fix for Twitter Bootstrap and UIkit integration didn't work properly, fixes [#73](https://github.com/nazar-pc/PickMeUp/issues/73)
+* In case of multiple dates open on the last one instead of the first (seems more natural), fixes first part of [#74](https://github.com/nazar-pc/PickMeUp/issues/74)
+* Added support for `default: false` for `range` and `multiple` modes, fixes second part of [#74](https://github.com/nazar-pc/PickMeUp/issues/74) and [#89](https://github.com/nazar-pc/PickMeUp/issues/89)
+* Fire `change` event when filling empty input on on first open, fixes [#77](https://github.com/nazar-pc/PickMeUp/issues/77)
+* Small fix for `transparent` in SCSS
+* Consistent use of namespaced events from configuration
+* Added information about touch devices support to readme
+
+2.9.0 (04 February, 2016)
 * Added 'title_format' option
+* Added NPM support
 
 2.8.0 (08 April, 2015)
 * Added support for no default date [#70](https://github.com/nazar-pc/PickMeUp/pull/70), thanks to Amar Syla for pull request!
